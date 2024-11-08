@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'gmail.sandrounknown1991'
+version = '1.0-SNAPSHOT'
+
+def junitVersion = "5.11.1",
+    restAssuredVersion = "5.5.0"
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion"
+    )
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
