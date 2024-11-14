@@ -1,17 +1,17 @@
+package test;
+
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.*;
 
-public class ReqResTest extends TestBase {
+public class OldReqResTest extends TestBase{
     @Test
     void successfulGetSingleUserTest() {
         given()
-
                 .when()
                 .log().uri()
                 .get("/users/4")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -26,11 +26,9 @@ public class ReqResTest extends TestBase {
         String expectedAvatarUrl = "https://reqres.in/img/faces/5-image.jpg";
         int userId = 5;
         given()
-
                 .when()
                 .log().uri()
                 .get("/users/"+ userId)
-
                 .then()
                 .log().status()
                 .log().body()
@@ -42,11 +40,9 @@ public class ReqResTest extends TestBase {
     @Test
     void singleUserNotFoundTest() {
         given()
-
                 .when()
                 .log().uri()
                 .get("/users/23")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -59,11 +55,9 @@ public class ReqResTest extends TestBase {
         given()
                 .body(data)
                 .contentType(JSON)
-                
                 .when()
                 .log().all()
                 .post("/register")
-                
                 .then()
                 .log().status()
                 .log().body()
@@ -75,15 +69,12 @@ public class ReqResTest extends TestBase {
     @Test
     void unsuccessfulRegistrationWithOutPasswordTest() {
         String data = "{\"email\": \"eve.holt@reqres.in\",\"password\": \"\"}";
-
         given()
                 .body(data)
                 .contentType(JSON)
-
                 .when()
                 .log().uri()
                 .post("/register")
-
                 .then()
                 .log().status()
                 .log().body()
