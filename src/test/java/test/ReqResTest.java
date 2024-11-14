@@ -60,7 +60,7 @@ public class ReqResTest extends TestBase {
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("pistol");
         SuccessfulRegister response = step("Make register request", () -> given()
-                .spec(userSpec)  // Убедитесь, что userSpec правильно настроен
+                .spec(userSpec)
                 .body(data)
                 .when()
                 .post("/register")
@@ -69,9 +69,9 @@ public class ReqResTest extends TestBase {
                 .extract().as(SuccessfulRegister.class)
         );
         step("Check response", () -> {
-            assertNotNull(response, "Response should not be null");  // Проверяем, что ответ не null
-            assertEquals(4, response.getId(), "Expected id to be 4");  // Проверяем, что id = 4
-            assertEquals("QpwL5tke4Pnpja7X4", response.getToken(), "Expected token to be 'QpwL5tke4Pnpja7X4'");  // Проверяем, что токен совпадает
+            assertNotNull(response, "Response should not be null");
+            assertEquals(4, response.getId(), "Expected id to be 4");
+            assertEquals("QpwL5tke4Pnpja7X4", response.getToken(), "Expected token to be 'QpwL5tke4Pnpja7X4'");
         });
     }
 
