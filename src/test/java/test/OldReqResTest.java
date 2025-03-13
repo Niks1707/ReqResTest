@@ -14,7 +14,7 @@ public class OldReqResTest extends TestBase{
     @Test
     void successfulGetSingleUserTest() {
         given()
-                 .when()
+                .when()
                 .log().uri()
                 .get("/users/4")
                 .then()
