@@ -55,7 +55,7 @@ public class ReqResTest extends TestBase {
     }
 
     @Test
-    public void SuccessfulRegisterTest() {
+    public void successfulRegisterTest() {
         SuccessfulRegister data = new SuccessfulRegister();
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("pistol");
