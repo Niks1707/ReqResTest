@@ -41,7 +41,8 @@ public class ReqResTest extends TestBase {
 
     @Test
     void singleUserNotFoundTest() {
-        SingleUserNotFound response = step("Make request", ()-> given()
+        SingleUserNotFound response = step("Make request", ()-> 
+                given()
                 .when()
                 .spec(userSpec)
                 .get("/users/23")
@@ -59,7 +60,8 @@ public class ReqResTest extends TestBase {
         SuccessfulRegister data = new SuccessfulRegister();
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("pistol");
-        SuccessfulRegister response = step("Make register request", () -> given()
+        SuccessfulRegister response = step("Make register request", () -> 
+                given()
                 .spec(userSpec)
                 .body(data)
                 .when()
@@ -80,7 +82,8 @@ public class ReqResTest extends TestBase {
         SuccessfulRegister data = new SuccessfulRegister();
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("");
-        UnsuccessfulRegistration response = step("Make register request", () -> given()
+        UnsuccessfulRegistration response = step("Make register request", () -> 
+                given()
                 .spec(userSpec)
                 .body(data)
                 .when()
@@ -99,7 +102,8 @@ public class ReqResTest extends TestBase {
         SuccessfulRegister data = new SuccessfulRegister();
         data.setEmail("");
         data.setPassword("pistol");
-        UnsuccessfulRegistration response = step("Make register request", () -> given()
+        UnsuccessfulRegistration response = step("Make register request", () -> 
+                given()
                 .spec(userSpec)
                 .body(data)
                 .when()
