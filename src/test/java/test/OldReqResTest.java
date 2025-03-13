@@ -1,20 +1,25 @@
 package test;
 
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.*;
 
 public class OldReqResTest extends TestBase{
+    @Tag("Test")
+    @Owner(value = "Genkel Veronika")
+    
     @Test
     void successfulGetSingleUserTest() {
         given()
-                .when()
-                .log().uri()
+               // .when()
+              //  .log().uri()
                 .get("/users/4")
                 .then()
-                .log().status()
-                .log().body()
+                //.log().status()
+               // .log().body()
                 .statusCode(200)
                 .body("data.id", is(4))
                 .body("data.first_name", is("Eve"))
