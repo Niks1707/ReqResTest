@@ -14,12 +14,12 @@ public class OldReqResTest extends TestBase{
     @Test
     void successfulGetSingleUserTest() {
         given()
-               // .when()
-              //  .log().uri()
+                 .when()
+                .log().uri()
                 .get("/users/4")
                 .then()
-                //.log().status()
-               // .log().body()
+                .log().status()
+                .log().body()
                 .statusCode(200)
                 .body("data.id", is(4))
                 .body("data.first_name", is("Eve"))
